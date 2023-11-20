@@ -30,14 +30,20 @@ android {
     }
 }
 
+task generateSourcesJar(type: Jar){
+    from android.sourceSets.main.java.srcDirs
+    classifier  'sources'
+}
+
 afterEvaluate {
     publishing {
+        def versionName = "Form_V1.0.5"
         publications {
             release(MavenPublication) {
-                from components.release         // 表示发布 release（jitpack 都不会使用到）
+                //from components.release         // 表示发布 release（jitpack 都不会使用到）
                 groupId = 'com.gitee.linger50' // 这个是依赖库的组 id
                 artifactId = 'From'       // 依赖库的名称（jitpack 都不会使用到）
-                version = "Form_V1.0.4" //
+                version = versionName //
             }
         }
     }
