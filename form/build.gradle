@@ -1,11 +1,12 @@
-//apply plugin: 'com.android.library'
+apply plugin: 'com.android.library'
 //apply plugin: 'com.github.dcendents.android-maven'
-plugins {
-    id 'com.android.library'
-    id 'maven-publish'
-}
+apply plugin: 'maven-publish'
+//plugins {
+//    id 'com.android.library'
+//    id 'maven-publish'
+//}
 
-group='com.gitee.linger50'
+//group='com.gitee.linger50'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -29,23 +30,23 @@ android {
     }
 }
 
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            release(MavenPublication) {
-//                from components.release         // 表示发布 release（jitpack 都不会使用到）
-//                groupId = 'com.gitee.linger50' // 这个是依赖库的组 id
-//                artifactId = 'From'       // 依赖库的名称（jitpack 都不会使用到）
-//                version = "Form_V1.0.2" //
-//            }
-//        }
-//    }
-//}
-
-
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release         // 表示发布 release（jitpack 都不会使用到）
+                groupId = 'com.gitee.linger50' // 这个是依赖库的组 id
+                artifactId = 'From'       // 依赖库的名称（jitpack 都不会使用到）
+                version = "Form_V1.0.4" //
+            }
+        }
+    }
 }
+
+
+//tasks.withType(JavaCompile) {
+//    options.encoding = "UTF-8"
+//}
 
 //// 打包源码
 //task sourcesJar(type: Jar) {
