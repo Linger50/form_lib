@@ -23,8 +23,8 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            //proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
@@ -36,7 +36,7 @@ task generateSourcesJar(type: Jar){
 
 afterEvaluate {
     publishing {
-        def versionName = "Form_V1.0.8"
+        def versionName = "V1.0.9"
         publications {
             release(MavenPublication) {
                 //from components.release         // 表示发布 release（jitpack 都不会使用到）
