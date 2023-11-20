@@ -7,19 +7,6 @@ plugins {
 
 //group='com.gitee.linger50'
 
-afterEvaluate {
-    publishing {
-        publications {
-            release(MavenPublication) {
-                from components.release         // 表示发布 release（jitpack 都不会使用到）
-                groupId = 'com.gitee.linger50' // 这个是依赖库的组 id
-                artifactId = 'From'       // 依赖库的名称（jitpack 都不会使用到）
-                version = "Form_V1.0.1" //
-            }
-        }
-    }
-}
-
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion '26.0.2'
@@ -42,6 +29,18 @@ android {
     }
 }
 
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release         // 表示发布 release（jitpack 都不会使用到）
+                groupId = 'com.gitee.linger50' // 这个是依赖库的组 id
+                artifactId = 'From'       // 依赖库的名称（jitpack 都不会使用到）
+                version = "Form_V1.0.2" //
+            }
+        }
+    }
+}
 
 
 tasks.withType(JavaCompile) {
