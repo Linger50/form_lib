@@ -6,7 +6,7 @@ apply plugin: 'maven-publish'
 //    id 'maven-publish'
 //}
 
-//group='com.gitee.linger50'
+group='com.gitee.linger50'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -36,7 +36,7 @@ task generateSourcesJar(type: Jar){
 
 afterEvaluate {
     publishing {
-        def versionName = "Form_V1.0.7"
+        def versionName = "Form_V1.0.8"
         publications {
             release(MavenPublication) {
                 //from components.release         // 表示发布 release（jitpack 都不会使用到）
