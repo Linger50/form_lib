@@ -48,10 +48,10 @@ afterEvaluate {
 
 
     publishing {
-        def versionName = "V1.0.11"
+        def versionName = "V1.0.12"
         publications {
             maven(MavenPublication) {
-                groupId = 'com.gitee.linger50'  // 这个是依赖库的组 id
+                groupId = 'com.github.Linger50'  // 这个是依赖库的组 id
                 artifactId = 'From' // 依赖库的名称（jitpack 都不会使用到）
                 version = versionName
 
