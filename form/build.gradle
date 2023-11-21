@@ -11,7 +11,6 @@ group='com.gitee.linger50'
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
 
-
     defaultConfig {
         minSdkVersion  rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
@@ -35,14 +34,28 @@ task generateSourcesJar(type: Jar){
 }
 
 afterEvaluate {
+//    publishing {
+//        def versionName = "V1.0.9"
+//        publications {
+//            release(MavenPublication) {
+//                //from components.release
+//                groupId = 'com.gitee.linger50'
+//                artifactId = 'From'       // 依赖库的名称（jitpack 都不会使用到）
+//                version = versionName //
+//            }
+//        }
+//    }
+
+
     publishing {
-        def versionName = "V1.0.9"
+        def versionName = "V1.0.10"
         publications {
-            release(MavenPublication) {
-                //from components.release         // 表示发布 release（jitpack 都不会使用到）
-                groupId = 'com.gitee.linger50' // 这个是依赖库的组 id
-                artifactId = 'From'       // 依赖库的名称（jitpack 都不会使用到）
-                version = versionName //
+            maven(MavenPublication) {
+                groupId = 'com.gitee.linger50'  // 这个是依赖库的组 id
+                artifactId = 'From' // 依赖库的名称（jitpack 都不会使用到）
+                version = versionName
+
+                //from components.java  // 表示发布 release（jitpack 都不会使用到）
             }
         }
     }
