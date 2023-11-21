@@ -1,9 +1,9 @@
 ext {
     android = [
-            compileSdkVersion: 32,
+            compileSdkVersion: 30,
             buildToolsVersion: "30.0.2",
             minSdkVersion    : 21,      // 最低 18 安装包的最低版本要求 固定不动的。 若有其他包需要高版本 在其他包中对应的build.gradle中修改版本 如 mtx
-            targetSdkVersion : 32,
+            targetSdkVersion : 30,
             versionName      : "1.0.0",
             versionCode      : 1
     ]

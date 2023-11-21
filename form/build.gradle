@@ -6,7 +6,7 @@ apply plugin: 'maven-publish'
 //    id 'maven-publish'
 //}
 //group='com.gitee.linger50'
-group='com.github.Linger50'
+//group='com.github.Linger50'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -33,20 +33,21 @@ android {
 //    classifier  'sources'
 //}
 
-//afterEvaluate {
-//    publishing {
-//        def versionName = "V1.0.12"
-//        publications {
-//            maven(MavenPublication) {
-//                groupId = 'com.github.Linger50'  // 这个是依赖库的组 id
-//                artifactId = 'From' // 依赖库的名称（jitpack 都不会使用到）
-//                version = versionName
-//
-//                //from components.java  // 表示发布 release（jitpack 都不会使用到）
-//            }
-//        }
-//    }
-//}
+afterEvaluate {
+    publishing {
+        publications {
+            // Creates a Maven publication called "release".
+            release(MavenPublication) {
+                // Applies the component for the release build variant.
+                from components.release
+
+                groupId = 'com.github.Linger50'
+                artifactId = 'Form'
+                version = 'V1.0.14'
+            }
+        }
+    }
+}
 
 
 //tasks.withType(JavaCompile) {
@@ -54,29 +55,29 @@ android {
 //}
 
 // 打包源码
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    failOnError  false
-    javadoc.options.encoding = "UTF-8"
-    source = android.sourceSets.main.java.sourceFiles
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-    classpath += configurations.compile
-}
-
-// 制作文档(Javadoc)
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-
-artifacts {
-    archives sourcesJar
-    archives javadocJar
-}
+//task sourcesJar(type: Jar) {
+//    from android.sourceSets.main.java.srcDirs
+//    classifier = 'sources'
+//}
+//
+//task javadoc(type: Javadoc) {
+//    failOnError  false
+//    javadoc.options.encoding = "UTF-8"
+//    source = android.sourceSets.main.java.sourceFiles
+//    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+//    classpath += configurations.compile
+//}
+//
+//// 制作文档(Javadoc)
+//task javadocJar(type: Jar, dependsOn: javadoc) {
+//    classifier = 'javadoc'
+//    from javadoc.destinationDir
+//}
+//
+//artifacts {
+//    archives sourcesJar
+//    archives javadocJar
+//}
 
 dependencies {
 }
