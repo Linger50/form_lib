@@ -28,10 +28,10 @@ android {
     }
 }
 
-//task generateSourcesJar(type: Jar){
-//    from android.sourceSets.main.java.srcDirs
-//    classifier  'sources'
-//}
+task generateSourcesJar(type: Jar){
+    from android.sourceSets.main.java.srcDirs
+    classifier  'sources'
+}
 
 afterEvaluate {
     publishing {
@@ -43,7 +43,9 @@ afterEvaluate {
 
                 groupId = 'com.github.Linger50'
                 artifactId = 'Form'
-                version = 'V1.0.14'
+                version = 'V1.0.15'
+
+                artifact generateSourcesJar
             }
         }
     }
