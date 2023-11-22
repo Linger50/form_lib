@@ -43,10 +43,10 @@ afterEvaluate {
 
                 groupId = 'com.github.Linger50'
                 artifactId = 'Form'
-                version = 'V1.0.18'
+                version = 'V1.0.19'
 
-                //artifact 'build/outputs/aar/form-release.aar'
-                artifacts = [generateSourcesJar]
+                artifact 'build/outputs/libs/form-source.jar'
+                //artifacts = [generateSourcesJar]
             }
         }
     }
