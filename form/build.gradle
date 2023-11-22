@@ -30,7 +30,7 @@ android {
 
 task generateSourcesJar(type: Jar){
     from android.sourceSets.main.java.srcDirs
-    //classifier  'sources'
+    classifier  'sources'
 }
 
 afterEvaluate {
@@ -43,7 +43,10 @@ afterEvaluate {
 
                 groupId = 'com.github.Linger50'
                 artifactId = 'Form'
-                version = 'V1.0.17'
+                version = 'V1.0.18'
+
+                //artifact 'build/outputs/aar/form-release.aar'
+                artifacts = [generateSourcesJar]
             }
         }
     }
